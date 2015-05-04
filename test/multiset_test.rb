@@ -19,4 +19,13 @@ class MultisetTest < Minitest::Test
     @set.remove(1)
     assert_equal false, @set.contains(1)
   end
+
+  def test_duplicate
+    @set.add(1)
+    assert_equal true, @set.contains(1)
+    @set.remove(1)
+    assert_equal true, @set.contains(1)
+    @set.remove(1)
+    assert_equal false, @set.contains(1)
+  end
 end
